@@ -1,5 +1,5 @@
 
-FROM node:0.12
+FROM node:8.11.1
 MAINTAINER Ben West <bewest@gmail.com>
 
 # TODO
@@ -13,8 +13,6 @@ RUN cd /opt/app &&  git checkout ${DEPLOY_HEAD-master}
 RUN cd /opt/app && npm install
 RUN cd /opt/app && npm run postinstall
 RUN cd /opt/app && npm run env
-EXPOSE 5000
-EXPOSE 8080
-EXPOSE 8000
+EXPOSE 1337
 
 CMD ["node", "server.js"]
